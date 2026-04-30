@@ -2,12 +2,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
-/**
- * 游戏显示文本区域类
- * 封装了 JTextArea，用于展示游戏信息（如你需要的 1234 显示）
- */
 public class MainStartDisplay {
-    // 文本显示区域（成员变量）
     private JTextArea gameTextArea;
 
     public MainStartDisplay() {
@@ -54,9 +49,9 @@ public class MainStartDisplay {
         gameTextArea.setText("");
     }
 
-    public void ShowWPM(Typist players){
+    public void ShowWPM(int Number, Typist players){
 
-        gameTextArea.append(players.getName()+"WPM:"+players.getWPM());
+        gameTextArea.append("No."+Number+" | "+players.getName()+"("+players.getSymbol()+") | WPM:"+String.format("%.2f", players.getWPM())+"\n");
 
     }
 }

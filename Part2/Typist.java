@@ -30,6 +30,7 @@ public class Typist
     private ArrayList<Integer> recordRanking;
     private ArrayList<Double> WPMlist;
 
+    private int totleword;
     //part2
     private String[] equipmentArray;
     //*@*@
@@ -57,11 +58,12 @@ public class Typist
 
         this.burnoutTurnsRemaining = 0;
 
+        this.totleword = 0;
+
         this.equipmentArray = equipmentArray;
 
         recordRanking = new ArrayList<>();
         WPMlist = new ArrayList<>();
-        WPMlist.add(0.0);
 
         setAccuracy(typistAccuracy);
 
@@ -171,6 +173,7 @@ public class Typist
         this.progress = 0;
         this.burntOut = false;
         this.burnoutTurnsRemaining = 0;
+        this.reSetTotleword();
 
     }
 
@@ -294,7 +297,6 @@ public class Typist
 
         for (int i = 0; i < recordRanking.size(); i++) {
             int item = recordRanking.get(i);
-            System.out.println(item);
             if (item == 1)sum+=3;
             if (item == 2)sum+=2;
             if (item == 3)sum+=1;
@@ -307,7 +309,7 @@ public class Typist
         WPMlist.add(n);
     }
 
-    public double getWPM(){
+    public double getWPMavage(){
 
         double sum = 0.0;
 
@@ -315,8 +317,30 @@ public class Typist
             sum+=n;
         }
 
-        return sum;
+        return sum/WPMlist.size();
 
+    }
+
+    public ArrayList<Double> getWPMarray(){
+        return WPMlist;
+    }
+
+    public double getWPM(){
+
+        return WPMlist.get(WPMlist.size()-1);
+    }
+
+    public int getTotleword(){
+
+        return totleword;
+    }
+
+    public void addTotleword(){
+        totleword++;
+    }
+
+    public void reSetTotleword(){
+        totleword = 0;
     }
 
 }

@@ -13,8 +13,6 @@ public class TypingRaceSimulator_GUI {
     private static MainStartDisplay GameDisplay;
     //private static JList<String> PlayerDisplay;
 
-
-
     public static void main(String[] args) {
 
         SetSymbolArray SymbolsArrays = new SetSymbolArray();
@@ -39,9 +37,6 @@ public class TypingRaceSimulator_GUI {
         frame.add(CentreBorder,BorderLayout.CENTER);//Editor's Homepage
 
         frame.add(StartAndRankingList(),BorderLayout.WEST);
-
-
-
 
         frame.setVisible(true);
 
@@ -105,12 +100,6 @@ public class TypingRaceSimulator_GUI {
             RankingList.refreshData(false);
 
         });
-
-        ContrastiveButton = new JButton(" Contrastive Analysis ");
-        ContrastiveButton.setFont(new Font("", Font.BOLD ,20));
-        Centre.add(ContrastiveButton,BorderLayout.SOUTH);
-
-
 
 
         return Centre;

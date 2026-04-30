@@ -1,6 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.NoSuchElementException;
 
 public class ADDPLAYER_Win {
 
@@ -216,8 +219,16 @@ public class ADDPLAYER_Win {
 
         try{
             int[] countScores = TyClass.CountScore();
+            double bestmax = 0.0;
+            try {
+                bestmax = Collections.max(TyClass.getWPMarray());
+            }catch (NoSuchElementException e){
 
-            String res = String.format("<html>Standings:<br>No1 - %s<br>No2 - %s<br>No3 - %s</html>", countScores[0],countScores[1],countScores[2]);
+            }
+
+
+            String res = String.format("<html>Standings:<br>No1 - %s<br>No2 - %s<br>No3 - %s<br>WPM-Average:%.2f<br>Best-WPM:%.2f</html>",
+                    countScores[0],countScores[1],countScores[2],TyClass.getWPMavage(), bestmax);
             displayAtt = new JLabel(res);
             displayAtt.setFont(new Font("", Font.BOLD, 20));
             Centre.add(displayAtt,BorderLayout.CENTER);
@@ -270,6 +281,8 @@ public class ADDPLAYER_Win {
                     char limit = TyClass.getSymbol();
                     ArrayList<Integer> limitR = TyClass.getDataR();
 
+                    ArrayList<Double> limitWPM = TyClass.getWPMarray();
+
                     PlayerDisplays.removeData(TyClass);
 
                     Typist stta = new Typist(limit, nameEnter.getText(), Accuracy, equArray);
@@ -278,6 +291,11 @@ public class ADDPLAYER_Win {
                     for (int n:limitR){
                         stta.addDataRanking(n);
                     }
+                    for(Double n:limitWPM){
+
+                        stta.addWPM(n);
+                    }
+
 
                 }
                 PlayerDisplays.refreshData(true);

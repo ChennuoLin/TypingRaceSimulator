@@ -2,8 +2,7 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
+
 
 public class DisplayListClass extends JList<String> {
     private ArrayList<Typist> peopleData;
@@ -36,6 +35,10 @@ public class DisplayListClass extends JList<String> {
 
     public Typist getDataClass(int indexs){
         return peopleData.get(indexs);
+    }
+
+    public ArrayList<Typist> getArrays(){
+        return peopleData;
     }
 
 

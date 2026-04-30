@@ -70,26 +70,34 @@ public class TypingRaceGUI {
         for(Typist n : seatTypist) {
             if (raceFinishedBy(n)) {
                 JOptionPane.showMessageDialog(null, "Finish! "+n.getName()+" is Winner!( Symbol "+n.getSymbol()+")");
+
             }
         }
 
         seatTypist.sort(Comparator.comparing(Typist::getProgress).reversed());
         int numranking = 1;
+        GameDisplay.clearDisplay();
+        GameDisplay.showText(GameDisplay.multiplePrint('=',25));
         for (Typist n : seatTypist){
+
+            double WPM = n.getTotleword()/((rounds*200)/1000.0);
+
+            n.addWPM(WPM);
 
             n.addDataRanking(numranking);
 
+            GameDisplay.ShowWPM(numranking,n);
+
             numranking++;
         }
-
+        GameDisplay.showText(GameDisplay.multiplePrint('=',25));
 
 
     }
 
     private void advanceTypist(Typist theTypist)
     {
-        if (theTypist.isBurntOut())
-        {
+        if (theTypist.isBurntOut()) {
             // Recovering from burnout — skip this turn
             theTypist.recoverFromBurnout();
             return;
@@ -99,6 +107,7 @@ public class TypingRaceGUI {
         if (Math.random() < theTypist.getAccuracy())
         {
             theTypist.typeCharacter();
+            theTypist.addTotleword();
         }
 
         // Mistype check — the probability should reflect the typist's accuracy
@@ -114,6 +123,7 @@ public class TypingRaceGUI {
         {
             theTypist.burnOut(BURNOUT_DURATION+BURNOUT_DURATION_moudl);
         }
+
     }
 
     private void printRace()
