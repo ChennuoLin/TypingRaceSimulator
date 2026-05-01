@@ -267,7 +267,7 @@ try {
 
 **Game Over:**
 
-![Game Over](pic/ensample3.png)
+![Game Over](pic/ensample1.png)
 
 
 ****
