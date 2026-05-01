@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-public class TypingRaceSimulator_GUI {
+public class startRaceGUI {
 
     private static JSlider setParagraphSlider,setPeopleSlider;
     private static JRadioButton Normalmode,Coffeemode,Nightshiftmode;

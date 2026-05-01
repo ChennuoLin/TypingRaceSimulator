@@ -15,7 +15,7 @@ Typing Race Simulator is a typing race simulator project based on Java object-or
 TypingRaceSimulator\
 ├── Part1\
 │   ├── TypingRace.java\
-│   ├── TypingRace_Test.java  // Test file\
+│   ├── startRace.java  // Test file\
 │   ├── Typist.java\
 │   └── Typist_Test.java  // Test file\
 │\
@@ -25,9 +25,11 @@ TypingRaceSimulator\
 │   ├── MainStartDisplay.java\
 │   ├── SetSymbolArray.java\
 │   ├── TypingRaceGUI.java\
-│   ├── TypingRaceSimulator_GUI.java // Launching the program (main)\
+│   ├── startRaceGUI.java // Launching the program (main)\
 │   └── Typist.java\
 │\
+├── pic\
+│  
 └── README.md
 
 ## Project dependencies(Java Library)
@@ -45,7 +47,7 @@ TypingRaceSimulator\
 
 ## Part 2 Program Description
 
-### TypingRaceSimulator_GUI.java
+### startRaceGUI.java
 
 This is the building block of the main window, which mainly contains
 
@@ -68,7 +70,7 @@ Because the Add player and Player Detail Windows are the same. Different paramet
 In this section, the same method will be called when both buttons are clicked, but the first argument passed will be different.
 
 **When Add Player is clicked**
-```TypingRaceSimulator_GUI.java
+```
 addPlayer.addActionListener(e -> {
     GameDisplay.SetDisplayheight(PlayerDisplay.getModel().getSize());
     if (setPeopleSlider.getValue()>PlayerDisplay.getModel().getSize()) {
@@ -81,7 +83,7 @@ addPlayer.addActionListener(e -> {
 ```
 
 **When Player Details is clicked**
-```TypingRaceSimulator_GUI.java
+```
 DetailPlayer.addActionListener(e -> {
 
     try {

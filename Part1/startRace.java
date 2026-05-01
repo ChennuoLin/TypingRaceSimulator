@@ -1,4 +1,4 @@
-public class TypingRace_Test {
+public class startRace {
     public static void main(String[] args) {
         TypingRace race = new TypingRace(30);
         
