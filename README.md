@@ -259,11 +259,17 @@ try {
 ****
 ## Example Run Demonstration
 
+**Create participants:**
+
 ![Create participants](pic/ensample2.png)
+
+**The competition is in progress:**
 
 ![The competition is in progress](pic/ensample3.png)
 
-![Game Over](pic/ensample3.png)
+**Game Over:**
+
+![Game Over](pic/ensample1.png)
 
 
 ****
