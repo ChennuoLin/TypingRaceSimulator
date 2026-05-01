@@ -42,8 +42,27 @@ TypingRaceSimulator\
 - java.util.Collections;
 - java.util.NoSuchElementException; 
 
+****
 
-***
+## Compilation and Run
+
+**Use cmd**
+In the specified directory("./TypingRaceSimulator/Part1/")
+
+Part 1 - startRace.java
+```cmd
+javac *.java
+java startRace.java
+```
+
+Part 2 - startRaceGUI.java
+```cmd
+javac *.java
+java startRaceGUI.java
+```
+
+
+****
 
 ## Part 2 Program Description
 
