@@ -117,7 +117,7 @@ public class ADDPLAYER_Win {
         PlayerDisplays = PlayerDisplay;
 
         frameAdd = new JFrame("Typing Race Simulator---ADD PLAYER");
-        frameAdd.setSize(600, 450);
+        frameAdd.setSize(700, 450);
         frameAdd.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frameAdd.setLocationRelativeTo(null);
         frameAdd.setLayout(new BorderLayout());
@@ -180,17 +180,17 @@ public class ADDPLAYER_Win {
         JLabel TypingStyleLabel = new JLabel("Typing Style: ");
         TypingStyleLabel.setFont(new Font("", Font.BOLD ,20));
 
-        String[][]  TypingStyleArray = new String[][]{{"Not equipped","+0","+0"},{"Touch Typist","-0.3","-0.3"},
-                {"Hunt & Peck","+0.3","+0.3"}, {"Phone Thumbs","+0.3","-0.2"},
-                {"Voice-to-Tex","-0.4","+0.7"}};
+        String[][]  TypingStyleArray = new String[][]{{"Not equipped","+0","+0"},{"Touch Typist","-0.3","-0.4"},
+                {"Hunt & Peck","+0.3","-0.1"}, {"Phone Thumbs","+0.3","+0.1"},
+                {"Voice-to-Tex","-0.4","+0.4"}};
         TypingStyleCombobox = new ComboxPanel("Typing Style: ",TypingStyleArray);
 
         Centre.add(TypingStyleCombobox);
 
 
         String[][]  KeyboardsArray = new String[][]{{"Not equipped","+0","+0"},{"Mechanical","+0","+0.3"},
-                {"Membrane","+0","-0.2"}, {"Touchscreen","+0","-0.4"},
-                {"Stenography","+0","+0.1"}};
+                {"Membrane","+0","+0.2"}, {"Touchscreen","+0","-0.2"},
+                {"Stenography","+0","-0.3"}};
         keyboardsCombobox = new ComboxPanel("Keyboard: ",KeyboardsArray);
 
         Centre.add(keyboardsCombobox);
@@ -202,8 +202,8 @@ public class ADDPLAYER_Win {
         Centre.add(symbolCombobox);
 
 
-        String[][] equipArray = {{"Not equipped","+0","+0"},{"Wrist Suppor","-0.6","+0"},
-                {"Energy Drink","-0.4","+0"},{"Noise-Cancelling","0","+0.6"}};
+        String[][] equipArray = {{"Not equipped","+0","+0"},{"Wrist Suppor","-0.2","+0.1"},
+                {"Energy Drink","-0.1","+0.2"},{"Noise-Cancelling","0","+0.3"}};
         equipCombobox = new ComboxPanel("Add-ons: ",equipArray);
 
         Centre.add(equipCombobox);
@@ -227,8 +227,8 @@ public class ADDPLAYER_Win {
             }
 
 
-            String res = String.format("<html>Standings:<br>No1 - %s<br>No2 - %s<br>No3 - %s<br>WPM-Average:%.2f<br>Best-WPM:%.2f</html>",
-                    countScores[0],countScores[1],countScores[2],TyClass.getWPMavage(), bestmax);
+            String res = String.format("<html>Standings:<br>No1 - %s<br>No2 - %s<br>No3 - %s<br>WPM-Average:%.2f<br>Best-WPM:%.2f<br>Total burnout:%d <br>Average burnout:%.2f<br>Number of Competitions:%d</html>",
+                    countScores[0],countScores[1],countScores[2],TyClass.getWPMavage(), bestmax,TyClass.sumburnoutTime(), TyClass.burnoutTimeAverage(),TyClass.getjoinTime());
             displayAtt = new JLabel(res);
             displayAtt.setFont(new Font("", Font.BOLD, 20));
             Centre.add(displayAtt,BorderLayout.CENTER);
@@ -283,6 +283,8 @@ public class ADDPLAYER_Win {
 
                     ArrayList<Double> limitWPM = TyClass.getWPMarray();
 
+                    ArrayList<Integer> limitB = TyClass.getburnoutTimeList();
+
                     PlayerDisplays.removeData(TyClass);
 
                     Typist stta = new Typist(limit, nameEnter.getText(), Accuracy, equArray);
@@ -294,6 +296,9 @@ public class ADDPLAYER_Win {
                     for(Double n:limitWPM){
 
                         stta.addWPM(n);
+                    }
+                    for (int n: limitB){
+                        stta.addburnoutTimeList(n);
                     }
 
 

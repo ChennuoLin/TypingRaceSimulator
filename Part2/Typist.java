@@ -27,8 +27,10 @@ public class Typist
     private boolean burntOut; // Die
     private int burnoutTurnsRemaining; //The remaining progress of the document
     private double accuracy; //0.0-1.0
-    private ArrayList<Integer> recordRanking;
+    private ArrayList<Integer> recordRanking, burnoutTimeList;
     private ArrayList<Double> WPMlist;
+    private int burnoutTime;
+
 
     private int totleword;
     //part2
@@ -64,6 +66,7 @@ public class Typist
 
         recordRanking = new ArrayList<>();
         WPMlist = new ArrayList<>();
+        burnoutTimeList = new ArrayList<>();
 
         setAccuracy(typistAccuracy);
 
@@ -171,6 +174,8 @@ public class Typist
     {
 
         this.progress = 0;
+        this.burnoutTime = 0;
+
         this.burntOut = false;
         this.burnoutTurnsRemaining = 0;
         this.reSetTotleword();
@@ -342,5 +347,46 @@ public class Typist
     public void reSetTotleword(){
         totleword = 0;
     }
+
+    public int getBurnoutTime(){
+        return burnoutTime;
+    }
+    public void addburnoutTime(){
+        burnoutTime++;
+    }
+    public void addburnoutTimeList(int num){
+        burnoutTimeList.add(num);
+    }
+
+    public ArrayList<Integer> getburnoutTimeList(){
+        return burnoutTimeList;
+    }
+
+    public double burnoutTimeAverage(){
+
+        double finals = 0.0;
+        int sum = sumburnoutTime();
+        try{
+            finals = (double)sum/getburnoutTimeList().size();
+        }catch (ArithmeticException e){
+
+        }
+
+        return finals;
+    }
+
+    public int sumburnoutTime(){
+        int sum = 0;
+
+        for(double n : burnoutTimeList){
+            sum+=n;
+        }
+        return sum;
+    }
+
+    public int getjoinTime(){
+        return getburnoutTimeList().size();
+    }
+
 
 }

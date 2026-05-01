@@ -51,7 +51,7 @@ public class MainStartDisplay {
 
     public void ShowWPM(int Number, Typist players){
 
-        gameTextArea.append("No."+Number+" | "+players.getName()+"("+players.getSymbol()+") | WPM:"+String.format("%.2f", players.getWPM())+"\n");
+        gameTextArea.append("No."+Number+" | "+players.getName()+"("+players.getSymbol()+") | WPM:"+String.format("%.2f", players.getWPM())+" | BurntOut:"+players.getBurnoutTime()+"\n");
 
     }
 }

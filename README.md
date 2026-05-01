@@ -1,6 +1,6 @@
 # Typing Race Simulator
 
-Project Version - 0.0.7v
+Project Version - 0.0.8v
 
 Java Version - 26.0.1
 
@@ -296,7 +296,10 @@ try {
 - Adding a ranked list
 - Make a basic ranking system
 
-
+## - 0.0.8 - 
+- Add burn out statistics
+- Increase the average calculation and display of born out
+- Increase the number of born out displays per turn at settlement time
 
 
 

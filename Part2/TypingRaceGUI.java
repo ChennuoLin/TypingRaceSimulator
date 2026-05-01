@@ -86,6 +86,8 @@ public class TypingRaceGUI {
 
             n.addDataRanking(numranking);
 
+            n.addburnoutTimeList(n.getBurnoutTime());
+
             GameDisplay.ShowWPM(numranking,n);
 
             numranking++;
@@ -122,6 +124,7 @@ public class TypingRaceGUI {
         if (Math.random() < 0.05 * theTypist.getAccuracy() * theTypist.getAccuracy())
         {
             theTypist.burnOut(BURNOUT_DURATION+BURNOUT_DURATION_moudl);
+            theTypist.addburnoutTime();
         }
 
     }
